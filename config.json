@@ -6,7 +6,7 @@
       {
         "host_path": "data/",
         "guest_path": "/var/www",
-        "type": "default"
+        "type": "nfs"
       }
     ],
     "forwarded_ports": []
