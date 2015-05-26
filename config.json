@@ -36,6 +36,18 @@
           "url": "drupal7.dev",
           "alias": ["www.drupal7.dev"]
         }
+      },
+      "proman": {
+        "account_name": "proman",
+        "account_pass": "proman",
+        "account_mail": "eng.proman@swansea.ac.uk",
+        "site_name": "Proman dev",
+        "site_mail": "eng.proman@swansea.ac.uk",
+        "vhost": {
+          "document_root": "proman",
+          "url": "proman.dev",
+          "alias": ["www.proman.dev"]
+        }
       }
     }
   }
