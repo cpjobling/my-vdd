@@ -40,13 +40,25 @@
       "proman": {
         "account_name": "proman",
         "account_pass": "proman",
-        "account_mail": "eng.proman@swansea.ac.uk",
+        "account_mail": "engineering.proman@swansea.ac.uk",
         "site_name": "Proman dev",
-        "site_mail": "eng.proman@swansea.ac.uk",
+        "site_mail": "engineering.proman@swansea.ac.uk",
         "vhost": {
           "document_root": "proman",
           "url": "proman.dev",
           "alias": ["www.proman.dev"]
+        }
+      },
+      "proman-d8": {
+        "account_name": "proman",
+        "account_pass": "proman",
+        "account_mail": "engineering.proman@swansea.ac.uk",
+        "site_name": "Proman D8",
+        "site_mail": "engineering.proman@swansea.ac.uk",
+        "vhost": {
+          "document_root": "proman-d8",
+          "url": "proman-d8.dev",
+          "alias": ["www.proman-d8.dev"]
         }
       }
     }
