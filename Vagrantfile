@@ -18,6 +18,29 @@ Vagrant.configure("2") do |config|
       host: port["host_port"], protocol: port["protocol"], auto_correct: true
   end
 
+  # Require the Trigger plugin for Vagrant
+  unless Vagrant.has_plugin?('vagrant-triggers')
+    # Attempt to install ourself.
+    # Bail out on failure so we don't get stuck in an infinite loop.
+    system('vagrant plugin install vagrant-triggers') || exit!
+
+    # Relaunch Vagrant so the new plugin(s) are detected.
+    # Exit with the same status code.
+    exit system('vagrant', *ARGV)
+  end
+
+  # Workaround for https://github.com/mitchellh/vagrant/issues/5199
+  config.trigger.before [:reload, :up, :provision], stdout: true do
+    SYNCED_FOLDER = ".vagrant/machines/default/virtualbox/synced_folders"
+    info "Trying to delete folder #{SYNCED_FOLDER}"
+    begin
+      File.delete(SYNCED_FOLDER)
+    rescue StandardError => e
+      warn "Could not delete folder #{SYNCED_FOLDER}."
+      warn e.inspect
+      end
+    end
+
   # Customize provider.
   config.vm.provider :virtualbox do |vb|
     # RAM.
